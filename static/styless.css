@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #000000;
+    --text-color: #333;
+    --background-color: #ecf0f1;
+    --city-item-bg-color: #f0f0f0; /* رنگ پس‌زمینه طوسی */
+    --city-item-hover-color: #e0e0e0; /* رنگ پس‌زمینه طوسی تیره‌تر هنگام هاور */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-image {
+    width: 50px;
+    height: auto;
+}
+
+.content-container {
+    padding-top: 80px;
+    padding: 2rem;
+}
+
+.result-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto; /* اضافه کردن margin-top برای پایین بردن */
+}
+
+.result-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.city-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.city-item {
+    background-color: var(--city-item-bg-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.city-item:hover {
+    background-color: var(--city-item-hover-color);
+    transform: translateY(-5px); /* جابجایی به سمت بالا هنگام هاور */
+}
+
+.no-results {
+    text-align: center;
+    color: #ff3030;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 1rem auto 0;
+    width: fit-content;
+}
+
+.back-button:hover {
+    background-color: #ff3030;
+}

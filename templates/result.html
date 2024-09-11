@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتایج جستجو</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styless.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo1">
+            <img src="{{ url_for('static', filename='4ByI84-LogoMakr.png') }}" alt="Logo" class="logo-image">
+        </div>
+    </header>
+    <div class="content-container">
+        <div class="result-container">
+            <h2 class="result-title">شهرهای پیشنهادی</h2>
+            {% if cities %}
+                <ul class="city-list">
+                    {% for city in cities %}
+                        <li class="city-item">{{ city }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-results">متأسفانه هیچ شهری با معیارهای شما یافت نشد.</p>
+            {% endif %}
+            <p>Debug: Number of cities found: {{ cities|length }}</p>
+            <a href="/" class="back-button">بازگشت به صفحه اصلی</a>
+        </div>
+    </div>
+</body>
+</html>

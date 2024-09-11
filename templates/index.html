@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم پیشنهاد سفر</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-gray-100">
+    <header class="header">
+        <div class="logo1">
+            <img src="{{ url_for('static', filename='4ByI84-LogoMakr.png') }}" alt="Logo" class="logo-image">
+        </div>
+    </header>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">سیستم پیشنهاد سفر</h1>
+        <form action="/result" method="get" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="trip-type">
+                    نوع سفر
+                </label>
+                <select name="trip-type" id="trip-type" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <option value="Mazhabi">مذهبی</option>
+                    <option value="Tarikhi">تاریخی</option>
+                    <option value="Tafrehi">تفریحی</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="transport">
+                    نوع حمل و نقل
+                </label>
+                <select name="transport" id="transport" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <option value="Havapeyma">هواپیما</option>
+                    <option value="Khodro">خودرو</option>
+                    <option value="Otobos">اتوبوس</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="passengers">
+                    تعداد نفرات
+                </label>
+                <input type="number" name="passengers" id="passengers" min="1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="nights">
+                    تعداد شب اقامت
+                </label>
+                <input type="number" name="nights" id="nights" min="1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="budget">
+                    بودجه (به تومان)
+                </label>
+                <input type="number" name="budget" id="budget" min="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="origin">
+                    مبدأ
+                </label>
+                    <select id="origin" name="origin">
+                        <option value="Abadan">آبادان</option>
+                        <option value="Abadeh">آباده</option>
+                        <option value="Arak">اراک</option>
+                        <option value="Ardabil">اردبیل</option>
+                        <option value="Ardakan">اردکان</option>
+                        <option value="Esfahan">اصفهان</option>
+                        <option value="Ahvaz">اهواز</option>
+                        <option value="Bandar Abbas">بندرعباس</option>
+                        <option value="Bandar Anzali">بندرانزلی</option>
+                        <option value="Bojnurd">بجنورد</option>
+                        <option value="Birjand">بیرجند</option>
+                        <option value="Babol">بابل</option>
+                        <option value="Tabriz">تبریز</option>
+                        <option value="Tehran">تهران</option>
+                        <option value="Jiroft">جیرفت</option>
+                        <option value="Kerman">کرمان</option>
+                        <option value="Kermanshah">کرمانشاه</option>
+                        <option value="Kashan">کاشان</option>
+                        <option value="Qazvin">قزوین</option>
+                        <option value="Mashhad">مشهد</option>
+                        <option value="Shiraz">شیراز</option>
+                        <option value="Yazd">یزد</option>
+                        <option value="Qom">قم</option>
+                        <option value="Sanandaj">سنندج</option>
+                        <option value="Sari">ساری</option>
+                        <option value="Hamedan">همدان</option>
+                        <option value="Gorgan">گرگان</option>
+                        <option value="Rasht">رشت</option>
+                        <option value="Zanjan">زنجان</option>
+                        <option value="Urmia">ارومیه</option>
+                        <option value="Qeshm">قشم</option>
+                        <option value="Sabzevar">سبزوار</option>
+                        <option value="Nishapur">نیشابور</option>
+                        <option value="Kazerun">کازرون</option>
+                        <option value="Kish">کیش</option>
+                        <option value="Ilam">ایلام</option>
+                        <option value="Bushehr">بوشهر</option>
+                        <option value="Bam">بم</option>
+                        <option value="Bandar Lengeh">بندرلنگه</option>
+                        <option value="Zabol">زابل</option>
+                        <option value="Karaj">کرج</option>
+                        <option value="Khorramabad">خرم آباد</option>
+                        <option value="Shahr-e Kord">شهرکرد</option>
+                        <option value="Yasuj">یاسوج</option>
+                        <option value="Ramsar">رامسر</option>
+                        <option value="Najafabad">نجف آباد</option>
+                        <option value="Zarand">زرند</option>
+                        <option value="Maku">ماکو</option>
+                        <option value="Dezful">دزفول</option>
+                        <option value="Mahabad">مهاباد</option>
+                        <option value="Gonbad Kavus">گنبدکاووس</option>
+                        <option value="Quchan">گوچان</option>
+                        <option value="Khoy">خوی</option>
+                        <option value="Kashmar">کاشمر</option>
+                        <option value="Lahijan">لاهیجان</option>
+                        <option value="Malayer">ملایر</option>
+                        <option value="Maragheh">مراغه</option>
+                        <option value="Minab">میناب</option>
+                        <option value="Nahavand">نهاوند</option>
+                        <option value="Saveh">ساوه</option>
+                        <option value="Shushtar">شوشتر</option>
+                        <option value="Susa">شوش</option>
+                        <option value="Varamin">ورامین</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="fasl">
+                    فصل
+                </label>
+                <select name="fasl" id="fasl" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="bahar">بهار</option>
+                    <option value="tabastan">تابستان</option>
+                    <option value="paiez">پاییز</option>
+                    <option value="zemestan">زمستان</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="ab_hava">
+                    آب و هوا
+                </label>
+                <select name="ab_hava" id="ab_hava" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="sard">سرد</option>
+                    <option value="garm">گرم</option>
+                    <option value="sharge">شرجی</option>
+                    <option value="motadel">معتدل</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="khared">
+                    خرید
+                </label>
+                <select name="khared" id="khared" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="bale">بله</option>
+                    <option value="kheyr">خیر</option>
+                </select>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="tabeyat">
+                    طبیعت گردی
+                </label>
+                <select name="tabeyat" id="tabeyat" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="bale">بله</option>
+                    <option value="kheyr">خیر</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    جستجو
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
